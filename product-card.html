@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Page Product Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom right, #ffffff, #ffffff);
+            font-family: Arial, sans-serif;
+        }
+
+        .product-card {
+            width: 90%;
+            max-width: 600px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .product-card img {
+            width: 50%;
+            height: 50%;
+        }
+
+        .product-info {
+            padding: 5%;
+            text-align: left;
+        }
+
+        .product-info h3 {
+            font-size: 2rem;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product-info p {
+            font-size: 1.1rem;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .rating {
+            margin: 15px 0;
+            font-size: 1.2rem;
+            color: #ffc107;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .add-cart {
+            background: #f0f0f0;
+            color: #555;
+        }
+
+        .add-cart:hover {
+            background: #ddd;
+        }
+
+        .buy-now {
+            background: #ff0000;
+            color: #fff;
+        }
+
+        .buy-now:hover {
+            background: #5b4dde;
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #e1bee7;
+            color: #4a148c;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        
+        <img src="c:\webpages\Codealpha\photos\IMG-20250119-WA0032.jpg" width="300" height="600" alt="">
+        <div class="product-info">
+            <h3>hp laptop</h3>
+            <p>Shipped in 3-4 days</p>
+            <div class="rating">
+                ★ ★ ★ ★ ☆
+            </div>
+            <div class="price">₹49,999</div>
+            <div class="buttons">
+                <button class="add-cart">Add to Cart</button>
+                <a href="C:\webpages\Codealpha\payment.html"> <button class="buy-now">Buy Now</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

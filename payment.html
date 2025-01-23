@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment gate way</title>
+    <style>
+        /* General Reset */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Payment Container */
+        .payment-container {
+            width: 400px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .payment-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Payment Card */
+        .payment-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .qr-code {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .qr-code img {
+            width: 120px;
+            height: 120px;
+            border-radius: 5px;
+        }
+
+        .qr-code p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Payment Form */
+        .payment-form {
+            width: 100%;
+        }
+
+        .payment-form label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .payment-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .card-details div {
+            width: 48%;
+        }
+
+        .payment-form .pay-now {
+            background-color: #ff7a00;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .payment-form .pay-now:hover {
+            background-color: #e66a00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="payment-container">
+        <h2>Make Payment </h2>
+        <div class="payment-card">
+            <div class="qr-code">
+                <img src="c:\webpages\Codealpha\photos\simple_qrcode.webp" width="50" height="50"  alt="QR Code">
+                <p>Scan to Pay</p>
+            </div>
+            <form class="payment-form">
+                <label for="card-name">Cardholder Name</label>
+                <input type="text" id="card-name" placeholder="John Doe" required>
+
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+
+                <div class="card-details">
+                    <div>
+                        <label for="expiry-date">Expiry Date</label>
+                        <input type="text" id="expiry-date" placeholder="MM/YY" maxlength="5" required>
+                    </div>
+                    <div>
+                        <label for="cvv">CVV</label>
+                        <input type="password" id="cvv" placeholder="123" maxlength="3" required>
+                    </div>
+                </div>
+
+                <label for="payment-amount">Amount</label>
+                <input type="text" id="payment-amount" placeholder="" required>
+
+                <button type="submit" class="pay-now">Pay Now</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

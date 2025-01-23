@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script scr="task-1.js" defer></script>
+    <title>Go cart.Com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #fff;
+            color: #000;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.night-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        header {
+            background: #0a0000;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-grow: 1;
+        }
+
+        header h1 {
+            margin: 0;
+            margin-right: 2rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-box input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .search-box button {
+            background: #fc0000;
+            color: #ffffff;
+            border: #e8dddd;
+            padding: 0.5rem 1rem;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #4d4c4c;
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
+            color: #ffffff;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+        }
+        
+        .container {
+            width: 90%;
+            margin: 2rem auto;
+        }
+        
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .product-card {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 18%;
+            margin: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .product-card h3 {
+            margin: 1rem;
+        }
+
+        .product-card p {
+            margin: 1rem;
+            color: #555;
+        }
+
+        .product-card button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .product-card button:hover {
+            background: #555;
+        }
+
+        .product-card .favorite {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff4081;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .product-card .favorite:hover {
+            background: #ff79a8;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .mode-scroll {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: background-color 0.3s;
+        }
+
+        .mode-scroll:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <h1>GO CART</h1>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Shop</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search products...">
+            <button>Search</button>
+        </div>
+        
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to Our Online Store</h2>
+        <p>Find the best products at unbeatable prices!</p>
+    </section>
+    
+    <div class="container">
+        <h2>Featured Products</h2>
+        <div class="product">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>₹2,499</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>₹3,299</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>₹4,099</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 4">
+                <h3>Product 4</h3>
+                <p>₹4,899</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 5">
+                <h3>Product 5</h3>
+                <p>₹5,699</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+        </div>
+        <h2>More Products</h2>
+        <div class="product">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>₹2,499</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>₹3,299</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>₹4,099</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 4">
+                <h3>Product 4</h3>
+                <p>₹4,899</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 5">
+                <h3>Product 5</h3>
+                <p>₹5,699</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+        </div>
+        
+        <div class="product">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>₹2,499</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>₹3,299</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>₹4,099</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 4">
+                <h3>Product 4</h3>
+                <p>₹4,899</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 5">
+                <h3>Product 5</h3>
+                <p>₹5,699</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>₹2,499</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>₹3,299</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>₹4,099</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 4">
+                <h3>Product 4</h3>
+                <p>₹4,899</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 5">
+                <h3>Product 5</h3>
+                <p>₹5,699</p>
+                <button>Add to Cart</button>
+                <button class="favorite">❤</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy;2025 E-Shop. All rights reserved.</p>
+    </footer>
+</body>
+</html>

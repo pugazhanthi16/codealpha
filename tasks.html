@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GO CART.com</title>
+    <link C:\webpages\Codealpha\task-1.js>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+          
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f7f7f7;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        }
+
+        header .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-grow: 1;
+
+        }
+
+        header h1 {
+            margin: 0;
+            margin-right: 2rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+
+        }
+
+        nav a {
+            color: #f1c40f;
+            text-decoration: none;
+            font-weight: bold;
+
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: #f90d0d;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #f1c40f;
+        }
+
+        .search-bar {
+            margin: 0 2rem;
+            position: relative;
+        }
+
+        .search-bar input {
+            padding: 0.8rem;
+            width: 300px;
+            border: 1px solid #020000;
+            border-radius: 5px;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #f1c40f;
+            border: none;
+            color: #000000;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .icons i {
+            font-size: 1.5rem;
+            color: #333;
+        }
+        
+
+        /* Banner Section */
+        .banner {
+            background: url('https://via.placeholder.com/1200x400') no-repeat center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+
+        .banner button {
+            background: #2c8801;
+            color: #fff;
+            padding:2%;
+            border: none;
+            border-radius: 2px;
+            font-size: 1rem;
+            cursor: pointer;
+            position:absolute;
+            top:50;
+            left:18;
+
+        }
+
+
+        /* Categories Section */
+        .categories {
+            padding: 2rem 2rem;
+            background: #fff;
+        }
+
+        .categories h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .category {
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #f7f7f7;
+            transition: transform 0.3s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .category img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Products Section */
+        .products1 {
+            padding: 2rem;
+            background: #f7f7f7;
+        }
+
+        .products1 h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .product1-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product1-card {
+            background: #fff;
+            padding: 0.5rem;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product1-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product1-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .product1-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product1-card p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .product1-card button {
+            background: #f1c40f;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+
+        .product-card {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 18%;
+            margin: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .product-card h3 {
+            margin: 1rem;
+        }
+
+        .product-card p {
+            margin: 1rem;
+            color: #555;
+        }
+
+        .product-card button {
+            background: #7b68ee;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .product-card button:hover {
+            background: #555;
+        }
+
+        .product-card .favorite1 {
+            position: relative;
+            top: 10px;
+            right: 10px;
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .product-card .favorite1:hover {
+            background: #ff79a8;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 2rem;
+            text-align: left;
+            
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        } 
+        
+        
+    
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <h1>GO CART</h1>
+            <nav>
+                <a href="">Home</a>
+                <a href="">Shop</a>
+                <a href="">About</a>
+                <a href="">Contact Us</a>
+            </nav>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+            <button>Search</button>
+        </div>
+        <div class="icons">
+            <a href="C:\webpages\Codealpha\reg-form.html" target="_blank" <i class="fas fa-user"></i></a>
+            <a href="C:\webpages\Codealpha\cart.html" target="_blank" <i class="fas fa-shopping-cart"> </i></a>
+            <a <i class="fas fa-heart"></i></a>
+            <a <i class="fa-solid fa-bars"></i></a>
+        </div>
+
+    </header>
+
+    <!-- Banner -->
+    <div class="banner">
+        <div class="banner-overlay">
+
+        </div>
+        <img src="c:\webpages\Codealpha\photos\WhatsApp Image 2025-01-20 at 21.02.04_376493f6.jpg" alt="RTX 4090"
+            width="1200" height="400">
+        <button>Notify me</button>
+        </div>
+
+
+    </div>
+
+    <!-- Categories -->
+    <section class="categories">
+        <h2>Shop By Category</h2>
+        <div class="category-grid">
+            <div class="category">
+                <img src="c:\webpages\Codealpha\photos\WhatsApp Image 2025-01-20 at 14.36.24_240f2326.jpg" width="300" height="300" alt="Dresses"
+                    >
+                <h3>Winter Wear</h3>
+                <p>warm collection</p>
+            </div>
+            <div class="category">
+                <img src="c:\webpages\Codealpha\photos\IMG-20250120-WA0006.jpg" width="300" height="300" alt="Winter Wear">
+                <h3>Dresses</h3>
+                <p>Stay trendy</p>
+            </div>
+            <div class="category">
+                <img src="c:\webpages\Codealpha\photos\IMG-20250120-WA0004.jpg" width="300" height="300" alt="Accessories" >
+                <h3>Accessories</h3>
+                <p>Complete your look</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products1">
+        <h2>Featured Products</h2>
+        <div class="product1-grid">
+            <div class="product1-card">
+                <img src="c:\webpages\Codealpha\photos\WhatsApp Image 2025-01-20 at 14.36.25_6074bf23.jpg"
+                    alt="Product1" width="300" height="300">
+                <h3>Stylish Jacket</h3>
+                <p>599/</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product1-card">
+                <img src="c:\webpages\Codealpha\photos\IMG-20250119-WA0035.jpg"
+                    alt="Product1" width="300" height="300">
+                <h3>Elegant Watch</h3>
+                <p>2999/</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <center>More products</center>
+        <div class="container">
+            <div class="product">
+                <div class="product">
+                <div class="product-card">
+                    <img src="c:\webpages\Codealpha\photos\IMG-20250119-WA0029.jpg " alt="Product 1">
+                    <h3>Printer</h3>
+                    <p>₹15,499</p>
+                    <button>Shop now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="c:\webpages\Codealpha\photos\WhatsApp Image 2025-01-19 at 19.49.16_10e77b0e.jpg"
+                        alt="Product 2">
+                    <h3>sony plays station</h3>
+                    <p>₹49,299</p>
+                    <button>Shop now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="c:\webpages\Codealpha\photos\IMG-20250120-WA0017.jpg" alt="Product 3">
+                    <h3>asus cabinet</h3>
+                    <p>₹10,099</p>
+                    <button>Shop now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="c:\webpages\Codealpha\photos\IMG-20250119-WA0031.jpg" alt="Product 4">
+                    <h3>Apple ipad gen6</h3>
+                    <p>₹45,899</p>
+                    <button>Shop now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-card">
+                    <img src="c:\webpages\Codealpha\photos\IMG-20250119-WA0030.jpg" alt="Product 1">
+                    <h3>sandisk hardrive</h3>
+                    <p>₹20,000</p>
+                    <button>Shop now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <a href="C:\webpages\Codealpha\product-card.html" target="_blank">
+                        <img src="c:\webpages\Codealpha\photos\IMG-20250119-WA0032.jpg" alt="Product 2">
+                    </a>
+                    <h3>hp laptop</h3>
+                    <p>₹49,999</p>
+                    <button>Shop now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="c:\webpages\Codealpha\photos\IMG-20250119-WA0028.jpg" alt="Product 3">
+                    <h3>fastrack Glasses</h3>
+                    <p>₹4,099</p>
+                    <button>Shop now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="c:\webpages\Codealpha\photos\IMG-20250119-WA0033.jpg" alt="Product 4">
+                    <h3>apple iphone 15 pro max</h3>
+                    <p>₹99,999</p>
+                    <button>Shop now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <script src=""></script>
+    </section>
+    
+    <!-- Footer -->
+    <footer style="background-color: #2b2b2b; color: #ffffff; padding: 20px 0;">
+        <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+          
+          <!-- Address Section -->
+          <div style="flex: 1; min-width: 250px; margin: 10px;">
+            <h4 style="color: #ffd700; font-size: 18px; margin-bottom: 10px;">Our Address</h4>
+            <p style="font-size: 14px;">
+              go cart Hub Pvt. Ltd.<br>
+              1234, Main Street,<br>
+              Chennai, Tamil Nadu, India - 600001<br>
+              Landmark: Near Central Railway Station
+            </p>
+          </div>
+          
+          <!-- Contact Section -->
+          <div style="flex: 1; min-width: 250px; margin: 10px;">
+            <h4 style="color: #ffd700; font-size: 18px; margin-bottom: 10px;">Contact Us</h4>
+            <p style="font-size: 14px;">
+              <strong>Phone:</strong> +91-9876543210<br>
+              <strong>Email:</strong> support@go cart hub.com<br>
+              <strong>Customer Service:</strong> Available 24/7
+            </p>
+          </div>
+          
+          <!-- Quick Links -->
+          <div style="flex: 1; min-width: 250px; margin: 10px;">
+            <h4 style="color: #ffd700; font-size: 18px; margin-bottom: 10px;">Quick Links</h4>
+            <ul style="list-style: none; padding: 0; font-size: 14px;">
+              <li><a href="/about-us" style="color: #ffffff; text-decoration: none;">About Us</a></li>
+              <li><a href="/faq" style="color: #ffffff; text-decoration: none;">FAQ</a></li>
+              <li><a href="/terms" style="color: #ffffff; text-decoration: none;">Terms & Conditions</a></li>
+              <li><a href="/privacy-policy" style="color: #ffffff; text-decoration: none;">Privacy Policy</a></li>
+              <li><a href="/contact-us" style="color: #ffffff; text-decoration: none;">Contact Us</a></li>
+            </ul>
+          </div>
+          
+          <!-- Social Media Section -->
+          <div style="flex: 1; min-width: 250px; margin: 10px;">
+            <h4 style="color: #ffd700; font-size: 18px; margin-bottom: 10px;">Follow Us</h4>
+            <p style="font-size: 14px;">
+              <a href="https://facebook.com" style="color: #ffffff; text-decoration: none; margin-right: 10px;">Facebook</a> |
+              <a href="https://instagram.com" style="color: #ffffff; text-decoration: none; margin-right: 10px;">Instagram</a> |
+              <a href="https://twitter.com" style="color: #ffffff; text-decoration: none; margin-right: 10px;">Twitter</a>
+              
+            </p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; padding: 10px 0; font-size: 12px; background-color: #1a1a1a;">
+          &copy; 2025  GO CART Hub Pvt. Ltd. All rights reserved.
+        </div>
+      </footer>
+    
+
+</body>
+
+</html>
